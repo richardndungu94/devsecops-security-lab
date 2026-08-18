@@ -8,3 +8,20 @@ id = "demo-synthetic-secret"
 description = "Detect the intentionally planted lab secret"
 regex = '''DEMO_SECRET_[A-Z0-9]{24}'''
 keywords = ["DEMO_SECRET_"]
+
+  semgrep:
+    name: SAST / Semgrep
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Semgrep
+        uses: semgrep/semgrep-action@v1
+        with:
+          config: p/owasp-top-ten
