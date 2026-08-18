@@ -1,0 +1,10 @@
+title = "DevSecOps Security Lab Gitleaks configuration"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "demo-synthetic-secret"
+description = "Detect the intentionally planted lab secret"
+regex = '''DEMO_SECRET_[A-Z0-9]{24}'''
+keywords = ["DEMO_SECRET_"]
