@@ -1,0 +1,10 @@
+rules:
+  - id: lab-sql-injection
+    languages:
+      - javascript
+    message: "User-controlled input is being directly inserted into a SQL query."
+    severity: ERROR
+    mode: search
+    patterns:
+      - pattern: |
+          `...${$INPUT}...`
